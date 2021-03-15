@@ -1,0 +1,28 @@
+{% extends 'patients/includes/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Start Contact Form Area -->
+    <section class="contact__form__area ptb--100 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="contact-form-wrap bg-cat-3">
+                        <h2 class="contact__title">Crear una oferta de trabajo</h2>
+                        <p> Cuéntanos sobre tus necesidades de atención. Tenga en cuenta que todos los trabajos deben ser aprobados por un asesor de cuidados antes de que los cuidadores puedan postularse. </p>
+                        <form  method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="contact-btn">
+                                <button type="submit" class="bst__btn btn--theme__color">Publicar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-output">
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form Area -->
+{% endblock content %}

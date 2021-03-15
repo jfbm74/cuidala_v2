@@ -1,0 +1,85 @@
+{% load static %}
+<!-- Start Header Style -->
+    <div id="header" class="header">
+        <!-- Start Mainmenu Area -->
+        <div id="sticky-header-with-topbar" class="mainmenu__menu__wrap bg-white sticky__header hidden-xs">
+            <div class="mainmenu__menu__inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-sm-12">
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'images/logo/best-care.png' %}" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-lg-8 col-sm-10">
+                            <!-- Start Mainmenu -->
+                            <nav class="mainmenu__nav">
+                                <ul class="main__menu">
+                                    <li class="drop"><a href="#">Inicio</a></li>
+                                    <li class="drop"><a href="#">Contratar</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'jobs:my_active_jobs' %}">Mis Ofertas</a></li>
+                                            <li><a href="{% url 'jobs:create_job' %}">Crear Oferta</a></li>
+                                            <li><a href="#">Buscar Cuidadores</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="drop"><a href="#">Mi Cuenta</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Configuración</a></li>
+                                            <li><a href="#">Pagos</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="drop"><a href="#">{{ user.first_name }}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Ayuda</a></li>
+                                            <li><a href="{% url 'users:logout' %}">Cerrar Sesión</a></li>
+                                    </ul>
+                                </nav>
+                            <!-- End Mainmenu -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area -->
+        <!-- Mobile-menu-area start -->
+        <div class="mobile-menu-area hidden-md hidden-lg hidden-sm">
+            <div class="fluid-container mobile-menu-container">
+                <div class="mobile-logo"><a href="/"><img src="{% static 'images/logo/best-care.png' %}" alt="Mobile logo"></a></div>
+                <div class="mobile-menu clearfix">
+                    <nav id="mobile_dropdown">
+                        <ul>
+                            <li><a href="index.html">inicio</a>
+                                <ul>
+                                    <li><a href="#"></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">nosotros</a></li>
+                            <li><a href="#">cuidadores</a>
+                                <ul>
+                                    <li><a href="#">blog list</a></li>
+                                    <li><a href="#">blog details</a></li>
+                                    <li><a href="#">shop grid</a></li>
+                                    <li><a href="#">shop list</a></li>
+                                    <li><a href="#">Product details</a></li>
+                                    <li><a href="#">team</a></li>
+                                    <li><a href="#">team details</a></li>
+                                    <li><a href="#">service</a></li>
+                                    <li><a href="#">cart</a></li>
+                                    <li><a href="#">wishlist</a></li>
+                                    <li><a href="#">appoinment</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">contacto</a></li>
+                            <li><a href="#">Regístrate</a></li>
+                            <li><a href="#">Inicia Sesión</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile-menu-area End -->
+    </div>
+    <!-- End Header Style -->

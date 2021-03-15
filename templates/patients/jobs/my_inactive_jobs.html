@@ -1,0 +1,129 @@
+{% extends 'patients/includes/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+        <!-- Start our Shop Grid Area -->
+        <section class="shop__grid__area pt--100 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+                        <!-- Start Shop Grid Left Side Bar -->
+                        <div class="shop__grid__left__sidebar">
+                            <!-- Start Category Area -->
+                            <div class="category mb--50">
+                                <h2 class="title__2">Ofertas Publicadas</h2>
+                                <ul class="category__list">
+                                  <li><a href="{% url 'jobs:my_active_jobs' %}">Activas</a></li>
+                                    <li><a href="{% url 'jobs:my_inactive_jobs' %}"><strong> Inactivas</strong></a></li>
+                                    <li><a href="{% url 'jobs:my_hired_jobs' %}">Contratadas</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Category Area -->
+                        </div>
+                        <!-- End Shop Grid Left Side Bar -->
+                    </div>
+                    <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="row mb--10">
+                            <!-- Start Tab Menu -->
+                            <div class="col-md-12">
+                                <div class="product__view__list">
+                                    <!-- Start Tab -->
+                                    <div class="view-mode-wrap">
+                                        <ul class="view-mode" role="tablist">
+
+                                            <li role="presentation" class="list-view active"><a href="#list-view" role="tab" data-toggle="tab"><i class="zmdi zmdi-view-list"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Start Tab -->
+                                </div>
+                            </div>
+                            <!-- End Tab Menu -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="product-view-wrap">
+                                    <!-- Start List view -->
+                                    <div role="tabpanel" class="single-grid-view clearfix tab-pane fade in active" id="list-view">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                <div class="list__view__wrap">
+                                                    {% for post in object_list %}
+                                                        <!-- Start Single List -->
+                                                        <div class="list__view__inner">
+                                                            <div class="product__thumb__inner">
+                                                                <div class="product__thumb">
+                                                                    {% if post.get_recipient_care_display == 'Abuela' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/granma.jpg' %}" alt="product images"></a>
+                                                                    {% elif post.get_recipient_care_display == 'Abuelo' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/grandpa.jpg' %}" alt="product images"></a>
+                                                                    {% elif post.get_recipient_care_display == 'Padre' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/dad.jpg' %}" alt="product images"></a>
+                                                                    {% elif post.get_recipient_care_display == 'Madre' %}
+                                                                    <a href="#"><img src="{% static 'images/patient/mom.jpg' %}" alt="product images"></a>
+                                                                    {% elif post.get_patient_gender_display == 'Masculino' %}
+                                                                    <a href="#"><img src="{% static 'images/patient/man_silhouette.jpg' %}" alt="product images"></a>
+                                                                    {% elif post.get_patient_gender_display == 'Femenino' %}
+                                                                    <a href="#"><img src="{% static 'images/patient/woman_silhouette.jpg' %}" alt="product images"></a>
+
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="list__view__details">
+                                                                <h2><a href="product-details.html">{{ post.description }} </a></h2>
+                                                                <div class="pro__price__rat">
+                                                                    <p class="pro__price">$ Hora: {{ post.salary_min}}</p>
+                                                                    <ul class="rating">
+                                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                                        <li><i class="zmdi zmdi-star-half"></i></li>
+                                                                        <li><i class="zmdi zmdi-star-half"></i></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <p class="list__details">Ciudad: {{ post.location_id }}</p>
+                                                                <p class="pro__price">{{ post.patient_gender }}</p>
+                                                                <p class="list__details">Disponibilidad: </p>
+                                                                <p class="list__details">Duración del contrato: {{ post.start_date }} - {{ post.end_date }}</p>
+                                                                {% for service in post.service_category.all %}
+                                                                    <ul>{{ service }}</ul>
+                                                                {% endfor %}
+                                                                <div class="list__addtocat">
+                                                                    <ul class="cat__link">
+                                                                        <li><a href="cart.html"><i class="fas fa-hands-helping"></i></a></li>
+                                                                        <li><a href="wishlist.html"><i class="fas fa-edit"></i></a></li>
+                                                                        <li><a class="quick-view modal-view detail-link" data-toggle="modal" data-target="#productModal" title="quick-view" href="#"><i class="zmdi zmdi-eye"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Single List -->
+                                                    {% endfor %}
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End List view -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Start Pagination Area -->
+{#                        <div class="row">#}
+{#                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">#}
+{#                                <ul class="htc-pagination clearfix text-center">#}
+{#                                    <li class="active"><a href="#">1</a></li>#}
+{#                                    <li><a href="#">2</a></li>#}
+{#                                    <li><a href="#">3</a></li>#}
+{#                                    <li><a href="#">4</a></li>#}
+{#                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+                        <!-- End Pagination Area -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End our Shop Grid Area -->
+{% endblock content %}

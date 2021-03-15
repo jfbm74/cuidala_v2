@@ -1,0 +1,52 @@
+{% extends 'home/includes/base.html' %}
+{% load static %}
+
+{% block title %} Cuidala | Registro {% endblock title %}
+
+{% block content %}
+    {% include 'home/includes/header.html' %}
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area bg--2" data--black__overlay="8">
+        <div class="ht__bradcaump__wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">Registro</h2>
+                            <nav class="bradcaump-inner">
+                              <a class="breadcrumb-item" href="{% url 'home' %}">Inicio</a>
+                              <span class="brd-separetor">//</span>
+                              <span class="breadcrumb-item active">Registro</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- Start Contact Form Area -->
+    <section class="contact__form__area ptb--100 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="contact-form-wrap bg-cat-3">
+                        <h2 class="contact__title">Regístrate</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="contact-btn">
+                                <button type="submit" class="bst__btn btn--theme__color">Registrarme</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-output">
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form Area -->
+
+{% endblock content %}
