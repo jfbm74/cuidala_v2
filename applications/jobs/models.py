@@ -1,4 +1,6 @@
 from django.db import models
+
+from applications.jobs.managers import JobsManager
 from applications.users.models import (
     Skill,
     Service,
@@ -56,8 +58,7 @@ class Jobs(models.Model):
         verbose_name_plural = "Ofertas"
         ordering = ['description']
 
+    objects = JobsManager()
+
     def __str__(self):
         return str(self.id)
-
-
-

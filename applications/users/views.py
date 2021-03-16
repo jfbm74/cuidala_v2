@@ -58,18 +58,6 @@ class PatientRegisterCreateView(FormView):
         return super(PatientRegisterCreateView, self).form_valid(form)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 class ListAllUsersListView(ListView):
     """
     List all Users in Cuidala

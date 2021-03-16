@@ -1,0 +1,161 @@
+{% extends 'caregivers/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Start Team Details Area -->
+
+    <section class="team__details pt--100 bg-white">
+        <div class="container">
+            <div class="row mb--10">
+                <!-- Start Tab Menu -->
+                <div class="col-md-12">
+                    <div class="product__view__list">
+                        <div class="view-mode-wrap">
+                            <ul class="view-mode" role="tablist">
+                                <li><button type="button" class="btn btn-primary"><a class="text--white"  href="{% url 'caregivers:new_job' %}">+ Trabajo</a></button></li>
+                                <li><button type="button" class="btn btn-primary"><a class="text--white"  href="{% url 'caregivers:new_school' %}">+ Educación</a></button></li>
+                                <li><button type="button" class="btn btn-primary"><a class="text--white"  href="#">+ Habilidad</a></button></li>
+                                <li><button type="button" class="btn btn-primary"><a class="text--white"  href="#">+ Servicio</a></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                {% for profile in object_list  %}
+                    {% for study in profile. %}
+
+                    {% endfor %}
+
+                    <div class="col-md-6 col-lg-7 col-sm-12 col-xs-12">
+                        <div class="team__details__thumb">
+                            <img src="{{ profile.avatar.url }}" alt="team details">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 col-sm-12 col-xs-12">
+                        <div class="bt__team__details">
+                            <div class="bt__team__details__inner">
+                                <h2><a href="#">{{ profile.first_name }}</a></h2>
+                                <h4>{{ profile.title }}</h4>
+                                <h6>
+                                    <ul class="rating">
+                                        <li><i class="zmdi zmdi-star"></i></li>
+                                        <li><i class="zmdi zmdi-star"></i></li>
+                                        <li><i class="zmdi zmdi-star"></i></li>
+                                        <li><i class="zmdi zmdi-star-half"></i></li>
+                                        <li><i class="zmdi zmdi-star-half"></i></li>
+                                    </ul>
+                                </h6>
+                                <p>{{ profile.description_profile }}</p>
+                                <div class="team__address">
+                                    <p><i class="zmdi zmdi-my-location"></i><span></span><a href="#">{{ profile.location_id }}</a></p>
+                                    <p><i class="zmdi zmdi-money"></i><span></span><a href="#"></a></p>
+                                    <p><i class="zmdi zmdi-play-for-work"></i><span></span><a href="#"></a></p>
+                                </div>
+                                <div class="team__social__icon">
+                                    <ul class="social__icon social__icon__bg--transparent">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Review Information -->
+                    <div class="review__info__wrap mt--50">
+                        <div class="row">
+                            <div class="review__tab">
+                                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
+                                    <ul class="review__info__menu" role="tablist">
+                                        <li role="presentation" class="works active"><a href="#works" role="tab" data-toggle="tab">Trabajos</a></li>
+                                        <li role="presentation" class="schools"><a href="#schools" role="tab" data-toggle="tab">Estudios</a></li>
+                                        <li role="presentation" class="skills"><a href="#skills" role="tab" data-toggle="tab">Habilidades</a></li>
+                                        <li role="presentation" class="services"><a href="#services" role="tab" data-toggle="tab">Servicios</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
+                                <!-- Start Work Tab Content -->
+                                <div id="works" role="tabpanel" class="single-review-tab tab-pane fade in active">
+                                    {% for work in user.work_set.all %}
+                                        <div class="single-blog-comment">
+                                                <div class="blog-comment-thumb">
+                                                    <img src="{% static 'images/caregivers/profile/jobs.jpg' %}" alt="comment images">
+                                                </div>
+                                                <div class="blog-comment-details">
+                                                            <div class="comment-title-date">
+                                                                <h2><a href="#"><strong>{{ work.work_title }}</strong></a></h2>
+                                                            </div>
+                                                            <p>{{ work.start_date }} / <a href="#">{{ work.end_date }}</a></p>
+                                                            <p>{{ work.employer }}</p>
+                                                            <p>{{ work.location_id }}</p>
+                                                            <p>{{ work.job_description }}</p>
+                                                </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- End Work Content -->
+                                <!-- Start Schools Content -->
+                                <div id="schools" role="tabpanel" class="single-review-tab tab-pane fade">
+                                    <!-- Start Studies Area -->
+                                    <div class="our-blog-comment mt--60">
+                                        <div class="blog-comment-inner">
+                                            <!-- Start Single Comment -->
+                                            {% for study in user.school_set.all %}
+                                                <div class="single-blog-comment">
+                                                    <div class="blog-comment-thumb">
+                                                        <img src="{% static 'images/caregivers/profile/studies.jpg' %}" alt="comment images">
+                                                    </div>
+                                                    <div class="blog-comment-details">
+                                                                <div class="comment-title-date">
+                                                                    <h2><a href="#"><strong>{{ study.study }}</strong></a></h2>
+                                                                </div>
+                                                                <p>{{ study.start_date }} / <a href="#">{{ study.end_date }}</a></p>
+                                                                <p>{{ study.name }}</p>
+                                                                <p>{{ study.location_id }}</p>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Schools Tab Content -->
+                                <!-- Start Skills Tab Content -->
+                                <div id="skills" role="tabpanel" class="single-review-tab tab-pane fade">
+                                    <!-- Start Skills Area -->
+                                    <div class="our-blog-comment mt--60">
+
+                                            <!-- Start Single Comment -->
+                                            {% for skill in user.skills.all %}
+                                                    <span class="badge badge-success">{{ skill.name }}</span>&nbsp;&nbsp;
+
+                                            {% endfor %}
+
+                                    </div>
+                                </div>
+                                <!-- End Skills Tab Content -->
+                                <!-- Start Skills Tab Content -->
+                                <div id="services" role="tabpanel" class="single-review-tab tab-pane fade">
+                                    <!-- Start Skills Area -->
+                                    <div class="our-blog-comment mt--60">
+
+                                            <!-- Start Single Comment -->
+                                            {% for service in user.services.all %}
+                                                    <span class="badge badge-success">{{ service.name }}</span>&nbsp;&nbsp;
+                                            {% endfor %}
+                                    </div>
+                                </div>
+                                <!-- End Skills Tab Content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End Team Details Area -->
+
+
+{% endblock content %}
