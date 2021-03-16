@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bab1bc1-6393-4993-9e8e-51191b6da8ea" name="Default Changelist" comment="" />
+    <list default="true" id="1bab1bc1-6393-4993-9e8e-51191b6da8ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cuidala/settings/local.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/jobs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,21 +47,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Descargas/themeforest-oP8jW9CF-bcare-senior-care-html-template/bcare/shop-list.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cuidala/settings" />
       <recent name="$PROJECT_DIR$/templates/caregivers/profile" />
       <recent name="$PROJECT_DIR$/templates/prueba" />
       <recent name="$PROJECT_DIR$/templates/caregivers/includes" />
       <recent name="$PROJECT_DIR$/templates/caregivers" />
-      <recent name="$PROJECT_DIR$/templates/patients/jobs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/caregivers/profile" />
@@ -111,6 +115,9 @@
       <workItem from="1615910893853" duration="240000" />
       <workItem from="1615917255033" duration="1991000" />
       <workItem from="1615921766213" duration="230000" />
+      <workItem from="1615922012556" duration="115000" />
+      <workItem from="1615922129824" duration="1822000" />
+      <workItem from="1615923985682" duration="156000" />
     </task>
     <servers />
   </component>

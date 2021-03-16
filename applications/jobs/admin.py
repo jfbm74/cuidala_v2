@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
+from .models import Jobs
 
 
 # Presentation in django admin panel
@@ -13,10 +14,9 @@ class JobsAdmin(admin.ModelAdmin):
         'salary_min',
         'salary_max',
     )
-    search_fields = ('email', 'first_name', 'last_name', )
-    list_filter = ('status', 'location_id', )
+    search_fields = ('email', 'first_name', 'last_name',)
+    list_filter = ('status', 'location_id',)
     filter_horizontal = ('care_category', 'service_category',)
-
 
 
 admin.site.register(Jobs, JobsAdmin)
