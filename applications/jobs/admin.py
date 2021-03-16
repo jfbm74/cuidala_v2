@@ -19,3 +19,4 @@ class JobsAdmin(admin.ModelAdmin):
 
 
 
+admin.site.register(Jobs, JobsAdmin)
