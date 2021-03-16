@@ -18,7 +18,7 @@ from .forms import NewJobForm, NewSchoolForm
 
 # Admin site for Patient
 class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = "caregivers/index.html"
+    template_name = 'caregivers/index.html'
     login_url = reverse_lazy('users:login')
 
 
@@ -41,7 +41,7 @@ class MyProfileViewList(LoginRequiredMixin, ListView):
 class NewJobCreateView(LoginRequiredMixin, FormView):
     model = Work
     form_class = NewJobForm
-    template_name = "caregivers/profile/new_job.html"
+    template_name = 'caregivers/profile/new_job.html'
     success_url = reverse_lazy('caregivers:profile')
 
     def form_valid(self, form):

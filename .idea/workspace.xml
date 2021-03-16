@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bab1bc1-6393-4993-9e8e-51191b6da8ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cuidala.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cuidala.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/caregivers/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/caregivers/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/caregivers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/caregivers/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/applications/caregivers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/caregivers/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/home/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/jobs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/jobs/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/jobs/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/jobs/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/jobs/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/jobs/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/users/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/caregivers/my_profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/caregivers/profile/new_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/caregivers/profile/new_job.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,24 +44,25 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/caregivers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/caregivers" />
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/cuidala/settings" />
       <recent name="$PROJECT_DIR$/templates/caregivers/profile" />
       <recent name="$PROJECT_DIR$/templates/prueba" />
-      <recent name="$PROJECT_DIR$/templates/caregivers/includes" />
-      <recent name="$PROJECT_DIR$/templates/caregivers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/caregivers/profile" />
@@ -126,7 +120,7 @@
       <workItem from="1615922012556" duration="115000" />
       <workItem from="1615922129824" duration="1822000" />
       <workItem from="1615923985682" duration="156000" />
-      <workItem from="1615924154656" duration="1266000" />
+      <workItem from="1615924154656" duration="2339000" />
     </task>
     <servers />
   </component>
@@ -144,5 +138,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
