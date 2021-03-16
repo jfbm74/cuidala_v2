@@ -6,16 +6,19 @@ from django.views.generic import (
     CreateView,
     ListView,
 )
-from django.views.generic.edit import (
-    FormView,
-)
+# URL's Helpers
 from django.urls import reverse_lazy
+# Models
 from .models import Jobs
+from .managers import JobsManager
 
 # Create your views here.
 
 
 # Jobs
+from ..users.models import Work
+
+
 class MyActiveJobsView(LoginRequiredMixin, ListView):
     """Listing Active Jobs for current Patient"""
     template_name = "patients/jobs/my_active_jobs.html"
@@ -43,6 +46,7 @@ class MyInactiveJobsView(LoginRequiredMixin, ListView):
         )
         return listing
 
+
 class MyHiredJobsView(LoginRequiredMixin, ListView):
     """Listing Active Jobs for current Patient"""
     template_name = "patients/jobs/my_hired_jobs.html"
@@ -56,9 +60,8 @@ class MyHiredJobsView(LoginRequiredMixin, ListView):
         )
         return listing
 
+
 # Create Jobs
-
-
 class JobCreateView(LoginRequiredMixin, CreateView):
     model = Jobs
     fields = (
@@ -73,3 +76,21 @@ class JobCreateView(LoginRequiredMixin, CreateView):
     template_name = "patients/jobs/create_job.html"
     success_url = reverse_lazy('patients:home')
     login_url = reverse_lazy('users:login')
+
+
+class ListActiveJobs(LoginRequiredMixin, ListView):
+    context_object_name = 'jobs'
+    template_name = "caregivers/jobs/job_search.html"
+
+    def get_queryset(self):
+        return Jobs.objects.list_active_jobs()
+
+
+class ListActiveJobsByLocation(LoginRequiredMixin, ListView):
+    """List all Jobs by location given by URL"""
+    context_object_name = 'posts'
+    template_name = "caregivers/jobs/job_search_city.html"
+
+    def get_queryset(self):
+        city = self.kwargs['city']
+        return Jobs.objects.list_active_jobs_by_url(city)

@@ -42,4 +42,15 @@ urlpatterns = [
         views.JobCreateView.as_view(),
         name='create_job'
     ),
+    path(
+        'search-jobs/',
+        views.ListActiveJobs.as_view(),
+        name='search_jobs'
+    ),
+    path(
+        'search-jobs-by-location/<city>',
+        views.ListActiveJobsByLocation.as_view(),
+        name='search_jobs_by_location'
+    ),
+
 ]

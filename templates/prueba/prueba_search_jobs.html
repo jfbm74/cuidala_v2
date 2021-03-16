@@ -1,4 +1,18 @@
-{% extends 'patients/includes/base.html' %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Search Active Jobs</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Jobs Activos</h1>#}
+{#{% for job in object_list %}#}
+{#    <li>{{ job.description }}</li>#}
+{#{% endfor %}#}
+{##}
+{#</body>#}
+{#</html>#}
+{% extends 'caregivers/includes/base.html' %}
 {% load static %}
 {% block content %}
     <!-- Body main wrapper start -->
@@ -7,39 +21,8 @@
         <section class="shop__grid__area pt--100 bg-white">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
-                        <!-- Start Shop Grid Left Side Bar -->
-                        <div class="shop__grid__left__sidebar">
-                            <!-- Start Category Area -->
-                            <div class="category mb--50">
-                                <h2 class="title__2">Ofertas Publicadas</h2>
-                                <ul class="category__list">
-                                    <li><a href="{% url 'jobs:my_active_jobs' %}"><strong>Activas</strong></a></li>
-                                    <li><a href="{% url 'jobs:my_inactive_jobs' %}">Inactivas</a></li>
-                                    <li><a href="{% url 'jobs:my_hired_jobs' %}">Contratadas</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Category Area -->
-                        </div>
-                        <!-- End Shop Grid Left Side Bar -->
-                    </div>
                     <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
                         <div class="row mb--10">
-                            <!-- Start Tab Menu -->
-                            <div class="col-md-12">
-                                <div class="product__view__list">
-                                    <!-- Start Tab -->
-                                    <div class="view-mode-wrap">
-                                        <ul class="view-mode" role="tablist">
-
-                                            <li role="presentation" class="list-view active"><a href="#list-view" role="tab" data-toggle="tab"><i class="zmdi zmdi-view-list"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Start Tab -->
-                                </div>
-                            </div>
-                            <!-- End Tab Menu -->
-                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-view-wrap">

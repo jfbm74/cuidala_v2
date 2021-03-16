@@ -30,4 +30,19 @@ urlpatterns = [
         views.MyProfileViewList.as_view(),
         name='profile'
     ),
+    path(
+        'new-job/',
+        views.NewJobCreateView.as_view(),
+        name='new_job'
+    ),
+    path(
+        'new-school/',
+        views.NewSchoolCreateView.as_view(),
+        name='new_school'
+    ),
+    path(
+        'new-skill/',
+        views.NewSchoolCreateView.as_view(),
+        name='new_skill'
+    ),
 ]
