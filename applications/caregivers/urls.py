@@ -31,6 +31,11 @@ urlpatterns = [
         name='profile'
     ),
     path(
+        'caregiver-profile/<id_user>',
+        views.ProfileViewById.as_view(),
+        name='caregiver_profile'
+    ),
+    path(
         'new-job/',
         views.NewJobCreateView.as_view(),
         name='new_job'
@@ -44,5 +49,10 @@ urlpatterns = [
         'new-skill/',
         views.NewSchoolCreateView.as_view(),
         name='new_skill'
+    ),
+    path(
+        'update-user/<pk>',
+        views.UserUpdateView.as_view(),
+        name='update_user'
     ),
 ]

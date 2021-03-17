@@ -20,4 +20,5 @@ from applications.home import views
 
 app_name = "home"
 
-urlpatterns = []
+urlpatterns = [
+]

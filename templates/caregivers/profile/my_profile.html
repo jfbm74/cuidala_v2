@@ -3,14 +3,15 @@
 {% block content %}
 
     <!-- Start Team Details Area -->
-
     <section class="team__details pt--100 bg-white">
         <div class="container">
             <div class="row mb--10">
                 <!-- Start Tab Menu -->
                 <div class="col-md-12">
                     <div class="product__view__list">
-                        <div class="view-mode-wrap">
+                         {% for profile in object_list  %}
+                            {% if profile.id == user.id%}
+                                <div class="view-mode-wrap">
                             <ul class="view-mode" role="tablist">
                                 <li><button type="button" class="btn btn-primary"><a class="text--white"  href="{% url 'caregivers:new_job' %}">+ Trabajo</a></button></li>
                                 <li><button type="button" class="btn btn-primary"><a class="text--white"  href="{% url 'caregivers:new_school' %}">+ Educación</a></button></li>
@@ -18,6 +19,8 @@
                                 <li><button type="button" class="btn btn-primary"><a class="text--white"  href="#">+ Servicio</a></button></li>
                             </ul>
                         </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -51,8 +54,9 @@
                                 <p>{{ profile.description_profile }}</p>
                                 <div class="team__address">
                                     <p><i class="zmdi zmdi-my-location"></i><span></span><a href="#">{{ profile.location_id }}</a></p>
-                                    <p><i class="zmdi zmdi-money"></i><span></span><a href="#"></a></p>
-                                    <p><i class="zmdi zmdi-play-for-work"></i><span></span><a href="#"></a></p>
+                                    {% if profile.id == user.id%}
+                                        <a class="btn btn-primary" href="#" role="button">Editar Datos Personales</a>
+                                    {% endif %}
                                 </div>
                                 <div class="team__social__icon">
                                     <ul class="social__icon social__icon__bg--transparent">

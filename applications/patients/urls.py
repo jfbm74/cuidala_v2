@@ -26,4 +26,9 @@ urlpatterns = [
         views.HomeView.as_view(),
         name='home'
     ),
+    path(
+        'list-candidates/<id_job>',
+        views.ListCandidatesByJob.as_view(),
+        name='list_candidates'
+    ),
 ]

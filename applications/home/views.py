@@ -4,7 +4,6 @@ from django.views.generic import (
     TemplateView,
 )
 
-
 # Create your views here.
 from applications.home.models import Prueba
 
@@ -16,4 +15,3 @@ class HomeView(TemplateView):
 
 class RegisterUsers(TemplateView):
     template_name = "home/register_patient.html"
-

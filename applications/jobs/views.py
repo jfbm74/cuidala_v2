@@ -1,22 +1,20 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.template.context_processors import request
 from django.views.generic import (
     TemplateView,
     CreateView,
     ListView,
+    FormView,
 )
+from django.http import HttpResponseRedirect
 # URL's Helpers
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 # Models
-from .models import Jobs
-from .managers import JobsManager
+from .models import Jobs, Applicants
+from applications.users.models import User
+
 
 # Create your views here.
-
-
-# Jobs
-from ..users.models import Work
 
 
 class MyActiveJobsView(LoginRequiredMixin, ListView):
@@ -94,3 +92,77 @@ class ListActiveJobsByLocation(LoginRequiredMixin, ListView):
     def get_queryset(self):
         city = self.kwargs['city']
         return Jobs.objects.list_active_jobs_by_url(city)
+
+
+def job_apply(request, id):
+    job = Jobs.objects.filter(
+        id=id
+    ).first()
+    print(job.salary_min)
+    Applicants.objects.create(
+        job_id=job,
+        caregiver_id=request.user,
+        patient_offer=job.salary_min,
+        caregiver_offer=job.salary_min,
+    )
+    return HttpResponseRedirect(reverse('jobs:search_jobs'))
+
+
+def inactivate_job(request, id):
+    job = Jobs.objects.filter(
+        id=id
+    ).first()
+    job.status = '0'
+    job.save()
+    return HttpResponseRedirect(reverse('jobs:my_inactive_jobs'))
+
+
+def inactivate_applicant(id_applicant):
+    candidate = Applicants.objects.filter(
+        id=id_applicant,
+    ).first()
+    candidate.status = '0'
+    candidate.save()
+    return candidate
+
+
+def inactivate_applicant_process(request, id_applicant):
+    application = inactivate_applicant(id_applicant)
+    return HttpResponseRedirect(reverse('patients:list_candidates', kwargs={'id_job': application.job_id}))
+
+
+def hire_applicant(id_applicant):
+    candidate = Applicants.objects.filter(
+        id=id_applicant,
+    ).first()
+    candidate.status = '2'
+    candidate.save()
+    return candidate
+
+
+def job_status_hired(job_id):
+    # Changing Job Offer Status to Hired
+    actual_job_offer = Jobs.objects.filter(
+        id=job_id
+    ).first()
+    print(actual_job_offer.status)
+    actual_job_offer.status = '2'
+    print(actual_job_offer.status)
+    actual_job_offer.save()
+    return actual_job_offer
+
+
+def hiring_process(request, id_applicant):
+    # Hiring a Caregiver Process
+    contacted_user = hire_applicant(id_applicant)
+    # Inactivating other caregiver's applicants process
+    applicants = Applicants.objects.filter(
+        job_id=contacted_user.job_id,
+        status=1
+    )
+    for a in applicants:
+        inactivate_applicant(a.id)
+
+    # Changing Job Offer Status to Hired
+    job_status_hired(contacted_user.job_id.id)
+    return HttpResponseRedirect(reverse('patients:list_candidates', kwargs={'id_job': contacted_user.job_id.id}))

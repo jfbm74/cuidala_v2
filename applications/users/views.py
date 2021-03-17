@@ -4,11 +4,11 @@ from django.views.generic import (
 )
 from django.views.generic.edit import (
     View,
-    FormView,
+    FormView, CreateView, UpdateView,
 )
 from django.http import HttpResponseRedirect
 from .models import User
-from .forms import PatientRegisterForm, LoginForm
+from .forms import PatientRegisterForm, LoginForm, CaregiverRegisterForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth import authenticate, login, logout
 
@@ -51,11 +51,36 @@ class PatientRegisterCreateView(FormView):
             first_name=form.cleaned_data['first_name'],
             last_name=form.cleaned_data['last_name'],
             legal_id=form.cleaned_data['legal_id'],
-            gender=form.cleaned_data['gender'],
             phone=form.cleaned_data['phone'],
-
+            location_id=form.cleaned_data['location_id'],
+            patient=True,
         )
         return super(PatientRegisterCreateView, self).form_valid(form)
+
+
+class CaregiverRegisterCreateView(FormView):
+    template_name = "home/register_caregiver.html"
+    form_class = CaregiverRegisterForm
+
+    success_url = reverse_lazy('caregivers:home')
+
+    def form_valid(self, form):
+        User.objects.create_user(
+            form.cleaned_data['email'],
+            form.cleaned_data['password1'],
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            legal_id=form.cleaned_data['legal_id'],
+            title=form.cleaned_data['title'],
+            description_profile=form.cleaned_data['description_profile'],
+            address=form.cleaned_data['address'],
+            phone=form.cleaned_data['phone'],
+            location_id=form.cleaned_data['location_id'],
+            # skills=form.cleaned_data['skills'],
+            # services=form.cleaned_data['services'],
+            caregiver=True,
+        )
+        return super(CaregiverRegisterCreateView, self).form_valid(form)
 
 
 class ListAllUsersListView(ListView):

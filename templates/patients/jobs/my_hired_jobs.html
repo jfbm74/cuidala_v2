@@ -9,18 +9,7 @@
                 <div class="row">
                     <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                         <!-- Start Shop Grid Left Side Bar -->
-                        <div class="shop__grid__left__sidebar">
-                            <!-- Start Category Area -->
-                            <div class="category mb--50">
-                                <h2 class="title__2">Ofertas Publicadas</h2>
-                                <ul class="category__list">
-                                  <li><a href="{% url 'jobs:my_active_jobs' %}">Activas</a></li>
-                                    <li><a href="{% url 'jobs:my_inactive_jobs' %}">Inactivas</a></li>
-                                    <li><a href="{% url 'jobs:my_hired_jobs' %}"><strong>Contratadas</strong></a></li>
-                                </ul>
-                            </div>
-                            <!-- End Category Area -->
-                        </div>
+                        {% include 'patients/jobs/includes/left_menu.html' %}
                         <!-- End Shop Grid Left Side Bar -->
                     </div>
                     <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
@@ -43,6 +32,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-view-wrap">
+                                    <h2><strong> Ofertas Contratadas</strong></h2>
                                     <!-- Start List view -->
                                     <div role="tabpanel" class="single-grid-view clearfix tab-pane fade in active" id="list-view">
                                         <div class="row">

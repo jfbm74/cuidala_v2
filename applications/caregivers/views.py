@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import (
     TemplateView,
-    ListView, CreateView, FormView,
+    ListView, CreateView, FormView, UpdateView,
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 # Models
 from applications.users.models import User, Work, School, Skill
+
 
 # Forms
 from .forms import NewJobForm, NewSchoolForm
@@ -34,6 +35,27 @@ class MyProfileViewList(LoginRequiredMixin, ListView):
             id=current_user.id
         )
         return current_user
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = (
+        'skills',
+        'services',
+    )
+    template_name = "caregivers/profile/add_skill_service_user.html"
+
+
+class ProfileViewById(LoginRequiredMixin, ListView):
+    template_name = "caregivers/profile/my_profile.html"
+    login_url = reverse_lazy('users:login')
+
+    def get_queryset(self):
+        caregiver_id = self.kwargs['id_user']
+        caregiver = User.objects.filter(
+            id=caregiver_id
+        )
+        return caregiver
 
 
 # Jobs Forms
@@ -80,4 +102,3 @@ class NewSchoolCreateView(LoginRequiredMixin, FormView):
 # Job Search Page
 class JobSearchView(TemplateView):
     template_name = "caregivers/jobs/job_search.html"
-

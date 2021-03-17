@@ -25,6 +25,9 @@ urlpatterns = [
     path('register-patient/',
          views.PatientRegisterCreateView.as_view(),
          name='register_patient',),
+    path('register-caregiver/',
+         views.CaregiverRegisterCreateView.as_view(),
+         name='register_caregiver', ),
     path(
         'login/',
         views.LoginUser.as_view(),

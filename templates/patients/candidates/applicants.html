@@ -1,0 +1,81 @@
+{% extends 'patients/includes/base.html' %}
+{% load static %}
+{% block title %}Cuidala | Candidatos{% endblock title %}
+{% block content %}
+
+
+
+<!-- wishlist-area start -->
+<div class="wishlist-area pt--100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="wishlist-content">
+                    <form action="#">
+                        <div class="wishlist-table table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-remove"><span class="nobr">Descartar</span></th>
+                                        <th class="product-thumbnail">Foto</th>
+                                        <th class="product-name"><span class="nobr">Nombre Cuidador</span></th>
+                                        <th class="product-price"><span class="nobr"> Tarifa / Hora</span></th>
+                                        <th class="product-stock-stauts"><span class="nobr"> Hoja de Vida </span></th>
+                                        <th class="product-add-to-cart"><span class="nobr">Contratar</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for applicant in applicants %}
+
+                                    <tr>
+                                        <td class="product-remove"><a href="http://127.0.0.1:8000/jobs/inactivate-applicant/{{applicant.id}}">×</a></td>
+                                        <td class="product-thumbnail"><a href="#"><img src="{{applicant.caregiver_id.avatar.url}}" alt="" /></a></td>
+                                        <td class="product-name"><a href="#">{{applicant.caregiver_id.first_name}}</a></td>
+                                        <td class="product-price"><span class="amount">$ {{ applicant.caregiver_offer }}</span></td>
+
+                                            <td class="product-add-to-cart">
+
+                                                {% if applicant.get_status_display != 'Inactivo'  %}
+                                                    <a href="http://127.0.0.1:8000/caregivers/caregiver-profile/{{applicant.caregiver_id.id}}"> Revisar HV</a>
+                                                {% else %}
+                                                    <p>Estado solicitud:<strong> {{applicant.get_status_display}} </strong></p>
+                                                {% endif %}
+                                            </td>
+                                            <td class="product-add-to-cart">
+                                                {% if applicant.get_status_display != 'Inactivo' and  applicant.get_status_display != 'Contratado' %}
+                                                    <a href="http://127.0.0.1:8000/jobs/hire-applicant/{{applicant.id}}"> Contratar</a>
+                                                {% else %}
+                                                    <p>Estado solicitud:<strong> {{applicant.get_status_display}} </strong></p>
+                                                {% endif %}
+                                            </td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="wishlist-share">
+                                                <h4 class="wishlist-share-title"></h4>
+                                                <div class="social-icon">
+                                                    <ul>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- wishlist-area end -->
+
+
+
+{% endblock content %}

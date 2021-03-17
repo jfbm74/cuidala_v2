@@ -8,20 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
-                        <!-- Start Shop Grid Left Side Bar -->
-                        <div class="shop__grid__left__sidebar">
-                            <!-- Start Category Area -->
-                            <div class="category mb--50">
-                                <h2 class="title__2">Ofertas Publicadas</h2>
-                                <ul class="category__list">
-                                    <li><a href="{% url 'jobs:my_active_jobs' %}"><strong>Activas</strong></a></li>
-                                    <li><a href="{% url 'jobs:my_inactive_jobs' %}">Inactivas</a></li>
-                                    <li><a href="{% url 'jobs:my_hired_jobs' %}">Contratadas</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Category Area -->
-                        </div>
-                        <!-- End Shop Grid Left Side Bar -->
+                        {% include 'patients/jobs/includes/left_menu.html' %}
                     </div>
                     <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
                         <div class="row mb--10">
@@ -43,6 +30,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-view-wrap">
+                                    <h2><strong> Ofertas Activas</strong></h2>
                                     <!-- Start List view -->
                                     <div role="tabpanel" class="single-grid-view clearfix tab-pane fade in active" id="list-view">
                                         <div class="row">
@@ -54,47 +42,53 @@
                                                             <div class="product__thumb__inner">
                                                                 <div class="product__thumb">
                                                                     {% if post.get_recipient_care_display == 'Abuela' %}
-                                                                        <a href="#"><img src="{% static 'images/patient/granma.jpg' %}" alt="product images"></a>
-                                                                    {% elif post.get_recipient_care_display == 'Abuelo' %}
-                                                                        <a href="#"><img src="{% static 'images/patient/grandpa.jpg' %}" alt="product images"></a>
-                                                                    {% elif post.get_recipient_care_display == 'Padre' %}
-                                                                        <a href="#"><img src="{% static 'images/patient/dad.jpg' %}" alt="product images"></a>
-                                                                    {% elif post.get_recipient_care_display == 'Madre' %}
-                                                                    <a href="#"><img src="{% static 'images/patient/mom.jpg' %}" alt="product images"></a>
-                                                                    {% elif post.get_patient_gender_display == 'Masculino' %}
-                                                                    <a href="#"><img src="{% static 'images/patient/man_silhouette.jpg' %}" alt="product images"></a>
-                                                                    {% elif post.get_patient_gender_display == 'Femenino' %}
-                                                                    <a href="#"><img src="{% static 'images/patient/woman_silhouette.jpg' %}" alt="product images"></a>
-
+                                                                            <a href="#"><img src="{% static 'images/patient/granma.jpg' %}" alt="product images"></a>
+                                                                        {% elif post.get_recipient_care_display == 'Abuelo' %}
+                                                                            <a href="#"><img src="{% static 'images/patient/grandpa.jpg' %}" alt="product images"></a>
+                                                                        {% elif post.get_recipient_care_display == 'Padre' %}
+                                                                            <a href="#"><img src="{% static 'images/patient/dad.jpg' %}" alt="product images"></a>
+                                                                        {% elif post.get_recipient_care_display == 'Madre' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/mom.jpg' %}" alt="product images"></a>
+                                                                        {% elif post.get_patient_gender_display == 'Masculino' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/man_silhouette.jpg' %}" alt="product images"></a>
+                                                                        {% elif post.get_patient_gender_display == 'Femenino' %}
+                                                                        <a href="#"><img src="{% static 'images/patient/woman_silhouette.jpg' %}" alt="product images"></a>
                                                                     {% endif %}
                                                                 </div>
                                                             </div>
                                                             <div class="list__view__details">
                                                                 <h2><a href="product-details.html">{{ post.description }} </a></h2>
-                                                                <div class="pro__price__rat">
-                                                                    <p class="pro__price">$ Hora: {{ post.salary_min}}</p>
-                                                                    <ul class="rating">
-                                                                        <li><i class="zmdi zmdi-star"></i></li>
-                                                                        <li><i class="zmdi zmdi-star"></i></li>
-                                                    study                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                        <li><i class="zmdi zmdi-star-half"></i></li>
-                                                                        <li><i class="zmdi zmdi-star-half"></i></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <p class="list__details">Ciudad: {{ post.location_id }}</p>
-                                                                <p class="pro__price">{{ post.patient_gender }}</p>
-                                                                <p class="list__details">Disponibilidad: </p>
-                                                                <p class="list__details">Duración del contrato: {{ post.start_date }} - {{ post.end_date }}</p>
-                                                                {% for service in post.service_category.all %}
-                                                                    <ul>{{ service }}</ul>
-                                                                {% endfor %}
-                                                                <div class="list__addtocat">
-                                                                    <ul class="cat__link">
-                                                                        <li><a href="cart.html"><i class="fas fa-hands-helping"></i></a></li>
-                                                                        <li><a href="wishlist.html"><i class="fas fa-edit"></i></a></li>
-                                                                        <li><a class="quick-view modal-view detail-link" data-toggle="modal" data-target="#productModal" title="quick-view" href="#"><i class="zmdi zmdi-eye"></i></a></li>
-                                                                    </ul>
-                                                                </div>
+                                                                    <div class="pro__price__rat">
+                                                                        <p class="pro__price">Tarifa Hora: ${{ post.salary_min}}</p>
+{#                                                                        <ul class="rating">#}
+{#                                                                            <li><i class="zmdi zmdi-star"></i></li>#}
+{#                                                                            <li><i class="zmdi zmdi-star"></i></li>#}
+{#                                                                            <li><i class="zmdi zmdi-star"></i></li>#}
+{#                                                                            <li><i class="zmdi zmdi-star-half"></i></li>#}
+{#                                                                            <li><i class="zmdi zmdi-star-half"></i></li>#}
+{#                                                                        </ul>#}
+                                                                    </div>
+                                                                    <p class="list__details"><strong>Ciudad:</strong>&nbsp; &nbsp; &nbsp; {{ post.location_id }}</p>
+                                                                    <p class="pro__price"><strong>Edad:</strong> &nbsp;{{ post.patient_age }} años &nbsp;<strong>Sexo:</strong> &nbsp; {{ post.get_patient_gender_display }}</p>
+                                                                    <p class="list__details"><strong>Duración del contrato:</strong> &nbsp; {{ post.start_date }} - {{ post.end_date }}</p>
+                                                                    <p><strong> Necesidades del Paciente:</strong></p>
+                                                                    {% for skill in post.care_category.all %}
+                                                                        <span class="badge badge-success">{{ skill }}</span>
+                                                                    {% endfor %}
+                                                                    <p><strong> Funciones del Cuidador:</strong></p>
+                                                                    {% for service in post.service_category.all %}
+                                                                        <span class="badge badge-success">{{ service }}</span>
+                                                                    {% endfor %}
+                                                                    <p><strong> Número de Candidatos:</strong>&nbsp; &nbsp; &nbsp;  {{ post.applicants_set.count }}</p>
+                                                                    <div class="list__addtocat">
+                                                                        <ul class="cat__link">
+                                                                            {% if post.applicants_set.count > 0 %}
+                                                                            <a class="btn btn-success" href="http://127.0.0.1:8000/patients/list-candidates/{{ post.id }}" role="button">Ver Candidatos</a>
+                                                                            {% endif %}
+                                                                            <button type="button" class="btn btn-primary">Editar</button>
+                                                                            <a class="btn btn-danger" href="http://127.0.0.1:8000/jobs/inactivate-job/{{ post.id }}" role="button">Inactivar</a>
+                                                                            </ul>
+                                                                    </div>
                                                             </div>
                                                         </div>
                                                         <!-- End Single List -->

@@ -52,5 +52,24 @@ urlpatterns = [
         views.ListActiveJobsByLocation.as_view(),
         name='search_jobs_by_location'
     ),
-
+    path(
+        'apply-job/<id>',
+        views.job_apply,
+        name='apply_job'
+    ),
+    path(
+        'inactivate-job/<id>',
+        views.inactivate_job,
+        name='inactivate_job'
+    ),
+    path(
+        'inactivate-applicant/<id_applicant>',
+        views.inactivate_applicant_process,
+        name='inactivate_applicant'
+    ),
+    path(
+        'hire-applicant/<id_applicant>',
+        views.hiring_process,
+        name='hire_applicant'
+    ),
 ]

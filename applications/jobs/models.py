@@ -62,3 +62,27 @@ class Jobs(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class Applicants(models.Model):
+    STATUS_CHOICES = (
+        ('0', 'Inactivo'),
+        ('1', 'Activo'),
+        ('2', 'Contratado'),
+        ('5', 'Pendiente'),
+    )
+    job_id = models.ForeignKey(Jobs, on_delete=models.CASCADE)
+    caregiver_offer = models.IntegerField('Oferta Cuidador', null=True, blank=True)
+    patient_offer = models.IntegerField('Oferta del Paciente', null=True, blank=True)
+    status = models.CharField('Estado de Aplicación', max_length=10, choices=STATUS_CHOICES, default='1')
+    created_at = models.DateTimeField(auto_now_add=True,)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    caregiver_id = models.ForeignKey(User, on_delete=models.CASCADE, )
+
+    class Meta:
+        verbose_name = "Aplicante"
+        verbose_name_plural = "Aplicantes"
+        ordering = ['-id']
+
+    def __str__(self):
+        return str(self.id)
