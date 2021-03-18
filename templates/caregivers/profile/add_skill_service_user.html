@@ -1,0 +1,33 @@
+{% extends 'caregivers/includes/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Start Contact Form Area -->
+    <section class="contact__form__area ptb--100 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="contact-form-wrap bg-cat-3">
+                        <h2 class="contact__title">Completa tu Perfil</h2>
+                        <h2>Hola <strong>{{ object.first_name}}</strong></h2>
+                        <p> Completa tu perfil validando tus habilidades para el cuidado de pacientes especiales a causa de su patología,
+                        así mismo cuéntanos los servicios que podrías realizar en caso de aplicar a una oferta. Esto te ayudará a dar un mejor posicionamiento
+                        frente a otros cuidadores en tu zona</p>
+                        <div>
+                            <form  method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="contact-btn">
+                                    <button type="submit" class="bst__btn btn--theme__color">Actualizar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="form-output">
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form Area -->
+{% endblock content %}
