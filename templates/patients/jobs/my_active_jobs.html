@@ -83,10 +83,10 @@
                                                                     <div class="list__addtocat">
                                                                         <ul class="cat__link">
                                                                             {% if post.applicants_set.count > 0 %}
-                                                                            <a class="btn btn-success" href="http://127.0.0.1:8000/patients/list-candidates/{{ post.id }}" role="button">Ver Candidatos</a>
+                                                                            <a class="btn btn-success" href="/patients/list-candidates/{{ post.id }}" role="button">Ver Candidatos</a>
                                                                             {% endif %}
                                                                             <button type="button" class="btn btn-primary">Editar</button>
-                                                                            <a class="btn btn-danger" href="http://127.0.0.1:8000/jobs/inactivate-job/{{ post.id }}" role="button">Inactivar</a>
+                                                                            <a class="btn btn-danger" href="/jobs/inactivate-job/{{ post.id }}" role="button">Inactivar</a>
                                                                             </ul>
                                                                     </div>
                                                             </div>
