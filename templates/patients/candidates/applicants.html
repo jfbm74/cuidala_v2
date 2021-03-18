@@ -28,7 +28,7 @@
                                     {% for applicant in applicants %}
 
                                     <tr>
-                                        <td class="product-remove"><a href="http://127.0.0.1:8000/jobs/inactivate-applicant/{{applicant.id}}">×</a></td>
+                                        <td class="product-remove"><a href="/jobs/inactivate-applicant/{{applicant.id}}">×</a></td>
                                         <td class="product-thumbnail"><a href="#"><img src="{{applicant.caregiver_id.avatar.url}}" alt="" /></a></td>
                                         <td class="product-name"><a href="#">{{applicant.caregiver_id.first_name}}</a></td>
                                         <td class="product-price"><span class="amount">$ {{ applicant.caregiver_offer }}</span></td>
@@ -36,14 +36,14 @@
                                             <td class="product-add-to-cart">
 
                                                 {% if applicant.get_status_display != 'Inactivo'  %}
-                                                    <a href="http://127.0.0.1:8000/caregivers/caregiver-profile/{{applicant.caregiver_id.id}}"> Revisar HV</a>
+                                                    <a href="/caregivers/caregiver-profile/{{applicant.caregiver_id.id}}"> Revisar HV</a>
                                                 {% else %}
                                                     <p>Estado solicitud:<strong> {{applicant.get_status_display}} </strong></p>
                                                 {% endif %}
                                             </td>
                                             <td class="product-add-to-cart">
                                                 {% if applicant.get_status_display != 'Inactivo' and  applicant.get_status_display != 'Contratado' %}
-                                                    <a href="http://127.0.0.1:8000/jobs/hire-applicant/{{applicant.id}}"> Contratar</a>
+                                                    <a href="/jobs/hire-applicant/{{applicant.id}}"> Contratar</a>
                                                 {% else %}
                                                     <p>Estado solicitud:<strong> {{applicant.get_status_display}} </strong></p>
                                                 {% endif %}

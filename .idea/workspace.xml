@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bab1bc1-6393-4993-9e8e-51191b6da8ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/applications/home/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/jobs/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/jobs/migrations/0002_auto_20210317_2119.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/users/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_profiles/caregiver/2_qKbjKSR.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_profiles/caregiver/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/caregivers/generic_caregiver.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/caregivers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/caregivers/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media_profiles/caregiver/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media_profiles/caregiver/1_ELLGL6U.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media_profiles/caregiver/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/caregivers/profile/add_skill_service_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/caregivers/profile/update_profile_caregiver.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/caregivers/profile/my_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/caregivers/profile/my_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prueba/prueba1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/patients/candidates/applicants.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/patients/candidates/applicants.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +118,7 @@
       <workItem from="1615923985682" duration="156000" />
       <workItem from="1615924154656" duration="60455000" />
       <workItem from="1616015587099" duration="1657000" />
-      <workItem from="1616020303110" duration="6344000" />
+      <workItem from="1616020303110" duration="7044000" />
     </task>
     <servers />
   </component>
