@@ -37,13 +37,21 @@ class MyProfileViewList(LoginRequiredMixin, ListView):
         return current_user
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "caregivers/profile/update_profile_caregiver.html"
     model = User
     fields = (
+        'avatar',
+        'title',
+        'description_profile',
+        'address',
+        'phone',
+        'location_id',
         'skills',
         'services',
     )
-    template_name = "caregivers/profile/add_skill_service_user.html"
+    success_url = reverse_lazy('caregivers:home')
+    login_url = reverse_lazy('users:login')
 
 
 class ProfileViewById(LoginRequiredMixin, ListView):

@@ -31,10 +31,13 @@
                     {% for study in profile. %}
 
                     {% endfor %}
-
                     <div class="col-md-6 col-lg-7 col-sm-12 col-xs-12">
                         <div class="team__details__thumb">
-                            <img src="{{ profile.avatar.url }}" alt="team details">
+                            {% if profile.avatar %}
+                            <img src="{{ profile.avatar.url  }}" alt="team details">
+                            {% else %}
+                            <img src="{% static 'images/caregivers/generic_caregiver.jpg' %}" alt="team details">
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-5 col-sm-12 col-xs-12">
@@ -55,7 +58,7 @@
                                 <div class="team__address">
                                     <p><i class="zmdi zmdi-my-location"></i><span></span><a href="#">{{ profile.location_id }}</a></p>
                                     {% if profile.id == user.id%}
-                                        <a class="btn btn-primary" href="#" role="button">Editar Datos Personales</a>
+                                        <a class="btn btn-primary" href="http://127.0.0.1:8000/caregivers/update-user/{{profile.id}}" role="button">Editar Datos Personales</a>
                                     {% endif %}
                                 </div>
                                 <div class="team__social__icon">

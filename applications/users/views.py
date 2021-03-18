@@ -76,6 +76,7 @@ class CaregiverRegisterCreateView(FormView):
             address=form.cleaned_data['address'],
             phone=form.cleaned_data['phone'],
             location_id=form.cleaned_data['location_id'],
+            avatar=form.cleaned_data['avatar'],
             # skills=form.cleaned_data['skills'],
             # services=form.cleaned_data['services'],
             caregiver=True,
