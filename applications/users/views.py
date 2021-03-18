@@ -62,7 +62,7 @@ class CaregiverRegisterCreateView(FormView):
     template_name = "home/register_caregiver.html"
     form_class = CaregiverRegisterForm
 
-    success_url = reverse_lazy('caregivers:home')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         User.objects.create_user(

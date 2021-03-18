@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 # Models
 from .models import Jobs, Applicants
-from applications.users.models import User
+from .forms import JobRegisterForm
 
 
 # Create your views here.
@@ -60,20 +60,32 @@ class MyHiredJobsView(LoginRequiredMixin, ListView):
 
 
 # Create Jobs
-class JobCreateView(LoginRequiredMixin, CreateView):
-    model = Jobs
-    fields = (
-        'description',
-        'recipient_care',
-        'user_id',
-        'location_id',
-        'care_category',
-        'service_category'
 
-    )
+class JobCreateView(LoginRequiredMixin, FormView):
+    model = Jobs
+    form_class = JobRegisterForm
     template_name = "patients/jobs/create_job.html"
-    success_url = reverse_lazy('patients:home')
+    success_url = reverse_lazy('jobs:my_active_jobs')
     login_url = reverse_lazy('users:login')
+
+    def form_valid(self, form):
+        new_job = Jobs(
+            description=form.cleaned_data['description'],
+            recipient_care=form.cleaned_data['recipient_care'],
+            start_date=form.cleaned_data['start_date'],
+            end_date=form.cleaned_data['end_date'],
+            patient_gender=form.cleaned_data['patient_gender'],
+            patient_phone=form.cleaned_data['patient_phone'],
+            patient_address=form.cleaned_data['patient_address'],
+            patient_age=form.cleaned_data['patient_age'],
+            location_id=form.cleaned_data['location_id'],
+            # care_category=form.cleaned_data['care_category'],
+            # service_category=form.cleaned_data['service_category'],
+            salary_min=form.cleaned_data['salary_min'],
+            user_id=self.request.user
+        )
+        new_job.save()
+        return super(JobCreateView, self).form_valid(form)
 
 
 class ListActiveJobs(LoginRequiredMixin, ListView):

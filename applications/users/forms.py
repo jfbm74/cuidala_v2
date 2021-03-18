@@ -99,6 +99,7 @@ class CaregiverRegisterForm(forms.ModelForm):
         """Meta definition for PatientRegisterForm"""
         model = User
         fields = (
+            'avatar',
             'first_name',
             'last_name',
             'legal_id',
@@ -112,6 +113,7 @@ class CaregiverRegisterForm(forms.ModelForm):
             # 'services',
         )
         labels = {
+            'avatar': 'Foto',
             'first_name': 'Nombres',
             'last_name': 'Apellidos',
             'legal_id': 'Número de Identificación',
