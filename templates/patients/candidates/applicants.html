@@ -29,7 +29,9 @@
 
                                     <tr>
                                         <td class="product-remove"><a href="/jobs/inactivate-applicant/{{applicant.id}}">×</a></td>
-                                        <td class="product-thumbnail"><a href="#"><img src="{{applicant.caregiver_id.avatar.url}}" alt="" /></a></td>
+                                        {% if applicant.caregiver_id.avatar.url %}
+                                            <td class="product-thumbnail"><a href="#"><img src="{{applicant.caregiver_id.avatar.url}}" alt="" /></a></td>
+                                        {% endif %}
                                         <td class="product-name"><a href="#">{{applicant.caregiver_id.first_name}}</a></td>
                                         <td class="product-price"><span class="amount">$ {{ applicant.caregiver_offer }}</span></td>
 

@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': 'cuidalapp_test',
         'USER': 'cuidalapp_user',
         'PASSWORD': '4dreamCoders',
-        'HOST': '142.93.2.180',
+        'HOST': '143.198.229.44',
         'PORT': '3306',
     }
 }
