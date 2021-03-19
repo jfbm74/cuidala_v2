@@ -1,5 +1,80 @@
 {% extends 'caregivers/includes/base.html' %}
 {% load static %}
-{% block title %}Cuidala | Home{% endblock title %}
 {% block content %}
+
+<!-- Start Our Blog Area -->
+<section class="blog-details-wrap pt--100 bg-white" xmlns="http://www.w3.org/1999/html">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+            <div class="blog-details-left-sidebar">
+                <div class="blog-details-top">
+                    <!--Start Blog Thumb -->
+                </div>
+                </div>
+                <!--End Blog Thumb -->
+                <h2 align="center">Últimas Ofertas</h2>
+                <div class="row">
+                    <div role="tabpanel" class="single-grid-view clearfix tab-pane fade in active" id="list-view">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <div class="list__view__wrap">
+                                    <!-- Start Single List -->
+                                        <div class="list__view__inner">
+                                            <div class="product__thumb__inner">
+                                                <div class="product__thumb">
+                                                    <a href="#"><img src="{% static 'images/patient/mom.jpg' %}" alt="product images"></a>
+                                                </div>
+                                            </div>
+                                            <div class="list__view__details">
+                                                <h2><a href="product-details.html">Cuidadora Profesional para mi Madre</a></h2>
+                                                    <p class="list__details"><strong>Ciudad: Barranquilla</strong>&nbsp; &nbsp; &nbsp; </p>
+                                                    <p class="list__details"><strong>Tarifa (hora):</strong> &nbsp;$ 8.500</p>
+                                            </div>
+                                        </div>
+                                    <!-- End Single List -->
+                                    <!-- Start Single List -->
+                                        <div class="list__view__inner">
+                                            <div class="product__thumb__inner">
+                                                <div class="product__thumb">
+                                                    <a href="#"><img src="{% static 'images/patient/granma.jpg' %}" alt="product images"></a>
+                                                </div>
+                                            </div>
+                                            <div class="list__view__details">
+                                                <h2><a href="product-details.html">Auxiliar de Enfermería para mi Abuela</a></h2>
+                                                    <p class="list__details"><strong>Ciudad: Cali</strong>&nbsp; &nbsp; &nbsp; </p>
+                                                    <p class="list__details"><strong>Tarifa (hora):</strong> &nbsp;$ 9.000</p>
+                                            </div>
+                                        </div>
+                                    <!-- End Single List -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="blod-details-right-sidebar">
+                <div class="blog__search">
+                    <i class="zmdi zmdi-search"></i>
+                    <input type="text" placeholder="Búsqueda">
+                </div>
+                <!-- Start Category Area -->
+                <div class="our-category-area mt--60">
+                    <h2 class="section-title-2">Ciudades</h2>
+                    <ul class="categore-menu mt-40">
+                        <li><a href="#"><i class="zmdi zmdi-caret-right"></i>Cali<span>20</span></a></li>
+                        <li><a href="#"><i class="zmdi zmdi-caret-right"></i>Bogotá<span>40</span></a></li>
+                        <li><a href="#"><i class="zmdi zmdi-caret-right"></i>Medellín <span>60</span></a></li>
+                        <li><a href="#"><i class="zmdi zmdi-caret-right"></i>Barranquilla <span>70</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End Our Blog Area -->
+
 {% endblock content %}
